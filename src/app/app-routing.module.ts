@@ -3,14 +3,26 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',
+    loadChildren: () => import('./tablinks/tablinks.module').then( m => m.TablinksPageModule)
+  },
+  {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    path: 'vacinadores',
+    loadChildren: () => import('./vacinadores/vacinadores.module').then( m => m.VacinadoresPageModule)
   },
+  {
+    path: 'vacinas',
+    loadChildren: () => import('./vacinas/vacinas.module').then( m => m.VacinasPageModule)
+  },
+  {
+    path: 'vacinados',
+    loadChildren: () => import('./vacinados/vacinados.module').then( m => m.VacinadosPageModule)
+  },
+
 ];
 
 @NgModule({
@@ -19,4 +31,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
