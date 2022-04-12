@@ -21,7 +21,19 @@ const routes: Routes = [
   {
     path: 'vacinados',
     loadChildren: () => import('./vacinados/vacinados.module').then( m => m.VacinadosPageModule)
+  },  {
+    path: 'vacinas-register',
+    loadChildren: () => import('./vacinas-register/vacinas-register.module').then( m => m.VacinasRegisterPageModule)
   },
+  {
+    path: 'vacinados-register',
+    loadChildren: () => import('./vacinados-register/vacinados-register.module').then( m => m.VacinadosRegisterPageModule)
+  },
+  {
+    path: 'vacinadores-register',
+    loadChildren: () => import('./vacinadores-register/vacinadores-register.module').then( m => m.VacinadoresRegisterPageModule)
+  },
+
 
 ];
 
