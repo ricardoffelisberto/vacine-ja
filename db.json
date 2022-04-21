@@ -2,37 +2,21 @@
   "vacinas": [
     {
       "id": 1,
-      "tipo": "COVID",
-      "laboratorio": "Pfizer",
-      "lote": 12345,
-      "fabricacao": "2001-01-01",
-      "validade": "2001-01-01"
-    },
-    {
-      "id": 2,
-      "tipo": "Teste",
-      "laboratorio": "Teste",
-      "lote": "Teste",
-      "fabricacao": "",
-      "validade": ""
+      "tipo": "Teste1",
+      "laboratorio": "Teste1",
+      "lote": "Teste1",
+      "fabricacao": "2022-04-22T14:00:00-03:00",
+      "validade": "2022-04-22T14:00:00-03:00"
     }
   ],
   "vacinadores": [
     {
       "id": 1,
-      "nome": "Gerson",
-      "rg": "0.000.000",
-      "cpf": "000.000.000-00",
-      "endereco": "2001-01-01",
-      "nascimento": "2001-01-01"
-    },
-    {
-      "id": 2,
-      "nome": "Teste",
-      "rg": "Teste",
-      "cpf": "Teste",
-      "endereco": "Teste",
-      "nascimento": ""
+      "nome": "Teste1",
+      "rg": "Teste1",
+      "cpf": "Teste1",
+      "endereco": "Teste1",
+      "nascimento": "2022-04-29T14:00:00-03:00"
     }
   ]
 }

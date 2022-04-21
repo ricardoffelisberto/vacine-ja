@@ -44,7 +44,7 @@ export class VacinadoresRegisterPage
       rg: ['', Validators.required],
       cpf: ['', Validators.required],
       endereco: ['', Validators.required],
-      nascimento: [''],
+      nascimento: ['', Validators.required],
     });
 
     const id = +this.activatedRoute.snapshot.params.id;

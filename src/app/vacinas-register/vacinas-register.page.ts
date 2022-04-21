@@ -44,8 +44,8 @@ export class VacinasRegisterPage
       tipo: ['', Validators.required],
       laboratorio: ['', Validators.required],
       lote: ['', Validators.required],
-      fabricacao: [''],
-      validade: [''],
+      fabricacao: ['', Validators.required],
+      validade: ['', Validators.required],
     });
 
     const id = +this.activatedRoute.snapshot.params.id;
