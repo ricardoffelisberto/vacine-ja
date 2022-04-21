@@ -1,9 +1,61 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>teste</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>Cadastro de vacinas</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [formGroup]="form">
+  <ion-card>
+    <ion-card-content>
+      <div class="ion-text-center" *ngIf="loading">
+        <ion-spinner></ion-spinner>
+      </div>
+      <div *ngIf="!loading">
+        <ion-item>
+          <ion-label position="stacked">Tipo: </ion-label>
+          <ion-input type="text" formControlName="tipo"></ion-input>
+        </ion-item>
 
+        <ion-item>
+          <ion-label position="stacked">Laboratório: </ion-label>
+          <ion-input type="text" formControlName="laboratorio"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Lote: </ion-label>
+          <ion-input type="text" formControlName="lote"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Fabricação: </ion-label>
+          <ion-datetime
+            displayFormat="DD/MM/YYYY"
+            cancelText="Cancelar"
+            doneText="Selecionar"
+            formControlName="fabricacao"
+          ></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Validade: </ion-label>
+          <ion-datetime
+            displayFormat="DD/MM/YYYY"
+            cancelText="Cancelar"
+            doneText="Selecionar"
+            formControlName="validade"
+          ></ion-datetime>
+        </ion-item>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="salvar()" [disabled]="!form.valid">
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
