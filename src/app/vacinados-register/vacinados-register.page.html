@@ -1,9 +1,75 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>vacinados-register</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>Cadastro de vacinados</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [formGroup]="form">
+  <ion-card>
+    <ion-card-content>
+      <div class="ion-text-center" *ngIf="loading">
+        <ion-spinner></ion-spinner>
+      </div>
+      <div *ngIf="!loading">
+        <ion-item>
+          <ion-label position="stacked">Nome: </ion-label>
+          <ion-input type="text" formControlName="nome"></ion-input>
+        </ion-item>
 
+        <ion-item>
+          <ion-label position="stacked">RG: </ion-label>
+          <ion-input type="text" formControlName="rg"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">CPF: </ion-label>
+          <ion-input type="text" formControlName="cpf"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Endereço: </ion-label>
+          <ion-input type="text" formControlName="endereco"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Nascimento: </ion-label>
+          <ion-datetime
+            displayFormat="DD/MM/YYYY"
+            cancelText="Cancelar"
+            doneText="Selecionar"
+            formControlName="nascimento"
+          ></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Vacina: </ion-label>
+          <ion-select formControlName="vacinas" multiple="false" cancelText="Cancelar" [compareWith]="compareWithVacina">
+            <ion-select-option *ngFor="let vacina of vacinas" [value]="vacina">
+              {{ vacina.tipo }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label>Vacinador: </ion-label>
+          <ion-select formControlName="vacinador" multiple="false" cancelText="Cancelar" [compareWith]="compareWithVacinador">
+            <ion-select-option *ngFor="let vacinador of vacinadores" [value]="vacinador">
+              {{ vacinador.nome }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="salvar()" [disabled]="!form.valid">
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

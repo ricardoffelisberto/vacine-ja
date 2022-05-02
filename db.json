@@ -2,9 +2,9 @@
   "vacinas": [
     {
       "id": 1,
-      "tipo": "Teste1",
-      "laboratorio": "Teste1",
-      "lote": "Teste1",
+      "tipo": "Vacina",
+      "laboratorio": "Vacina",
+      "lote": "Vacina",
       "fabricacao": "2022-04-22T14:00:00-03:00",
       "validade": "2022-04-22T14:00:00-03:00"
     }
@@ -12,10 +12,10 @@
   "vacinadores": [
     {
       "id": 1,
-      "nome": "Teste1",
-      "rg": "Teste1",
-      "cpf": "Teste1",
-      "endereco": "Teste1",
+      "nome": "Vacinador",
+      "rg": "Vacinador",
+      "cpf": "Vacinador",
+      "endereco": "Vacinador",
       "nascimento": "2022-04-29T14:00:00-03:00"
     }
   ]
