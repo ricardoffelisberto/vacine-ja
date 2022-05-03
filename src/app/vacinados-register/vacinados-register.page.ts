@@ -162,7 +162,9 @@ export class VacinadosRegisterPage
       .subscribe(
         () => {
           this.messageService.success(`Vacinado ${nome} foi salvo sucesso!`);
-          this.router.navigate(['vacinados']);
+          this.router.navigate(['vacinados']).then(() => {
+            window.location.reload();
+          });;
         },
         () => {
           this.messageService.error(`Erro ao salvar o vacinado ${nome}`, () =>

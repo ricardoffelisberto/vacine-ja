@@ -124,7 +124,9 @@ export class VacinadoresRegisterPage
       .subscribe(
         () => {
           this.messageService.success(`Vacinador ${nome} foi salvo sucesso!`);
-          this.router.navigate(['vacinadores']);
+          this.router.navigate(['vacinadores']).then(() => {
+            window.location.reload();
+          });;
         },
         () => {
           this.messageService.error(`Erro ao salvar o vacinador ${nome}`, () =>

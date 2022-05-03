@@ -114,7 +114,9 @@ export class VacinasRegisterPage
       .subscribe(
         () => {
           this.messageService.success(`Vacina ${tipo} foi salvo sucesso!`);
-          this.router.navigate(['vacinas']);
+          this.router.navigate(['vacinas']).then(() => {
+            window.location.reload();
+          });
         },
         () => {
           this.messageService.error(`Erro ao salvar a vacina ${tipo}`, () =>
