@@ -8,14 +8,20 @@ import { VacinadosRegisterPageRoutingModule } from './vacinados-register-routing
 
 import { VacinadosRegisterPage } from './vacinados-register.page';
 
+import { NgxMaskModule, MaskPipe } from 'ngx-mask'
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    VacinadosRegisterPageRoutingModule
+    VacinadosRegisterPageRoutingModule,
+    NgxMaskModule.forChild()
   ],
-  declarations: [VacinadosRegisterPage]
+  declarations: [VacinadosRegisterPage],
+  providers: [
+    MaskPipe
+  ]
 })
 export class VacinadosRegisterPageModule {}

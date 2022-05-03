@@ -22,12 +22,12 @@
 
         <ion-item>
           <ion-label position="stacked">RG: </ion-label>
-          <ion-input type="text" formControlName="rg"></ion-input>
+          <ion-input (ionChange)="updateWithMaskRg($event)" formControlName="rg"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label position="stacked">CPF: </ion-label>
-          <ion-input type="text" formControlName="cpf"></ion-input>
+          <ion-input (ionChange)="updateWithMaskCpf($event)" formControlName="cpf"></ion-input>
         </ion-item>
 
         <ion-item>

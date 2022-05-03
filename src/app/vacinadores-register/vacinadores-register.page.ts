@@ -11,6 +11,8 @@ import { MessageService } from 'src/app/services/message.service';
 import { VacinadoresApiService } from '../vacinadores-api.service';
 import { finalize } from 'rxjs/operators';
 
+import { MaskPipe } from 'ngx-mask'
+
 @Component({
   selector: 'app-vacinadores-register',
   templateUrl: './vacinadores-register.page.html',
@@ -33,8 +35,17 @@ export class VacinadoresRegisterPage
     private vacinadoresApiService: VacinadoresApiService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private maskPipe: MaskPipe
   ) {}
+
+  updateWithMaskRg(event) {
+    this.form.controls.rg.setValue(this.maskPipe.transform(event.currentTarget.value, '0.000.000'));
+  };
+
+  updateWithMaskCpf(event) {
+    this.form.controls.cpf.setValue(this.maskPipe.transform(event.currentTarget.value, '000.000.000-00'));
+  };
 
   ngOnInit() {
     console.log('VacinadoresApiService ngOnInit');
