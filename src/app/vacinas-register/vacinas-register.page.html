@@ -1,10 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-
-    <ion-title>Cadastro de vacinas</ion-title>
+    <ion-title>Cadastro de Vacinas</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -34,6 +30,7 @@
           <ion-label position="stacked">Fabricação: </ion-label>
           <ion-datetime
             displayFormat="DD/MM/YYYY"
+            presentation="date"
             cancelText="Cancelar"
             doneText="Selecionar"
             formControlName="fabricacao"
@@ -44,6 +41,7 @@
           <ion-label position="stacked">Validade: </ion-label>
           <ion-datetime
             displayFormat="DD/MM/YYYY"
+            presentation="date"
             cancelText="Cancelar"
             doneText="Selecionar"
             formControlName="validade"
@@ -52,10 +50,9 @@
       </div>
     </ion-card-content>
   </ion-card>
-
-  <ion-fab vertical="bottom" horizontal="end">
-    <ion-fab-button (click)="salvar()" [disabled]="!form.valid">
-      <ion-icon name="checkmark-outline"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
 </ion-content>
+<ion-fab vertical="bottom" horizontal="end">
+  <ion-fab-button (click)="salvar()" [disabled]="!form.valid">
+    <ion-icon name="checkmark-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

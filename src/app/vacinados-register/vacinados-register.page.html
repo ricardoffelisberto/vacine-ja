@@ -1,10 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-
-    <ion-title>Cadastro de vacinados</ion-title>
+    <ion-title>Cadastro de Vacinados</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -39,6 +35,7 @@
           <ion-label position="stacked">Nascimento: </ion-label>
           <ion-datetime
             displayFormat="DD/MM/YYYY"
+            presentation="date"
             cancelText="Cancelar"
             doneText="Selecionar"
             formControlName="nascimento"
@@ -67,9 +64,9 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-fab vertical="bottom" horizontal="end">
-    <ion-fab-button (click)="salvar()" [disabled]="!form.valid">
-      <ion-icon name="checkmark-outline"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
 </ion-content>
+<ion-fab vertical="bottom" horizontal="end">
+  <ion-fab-button (click)="salvar()" [disabled]="!form.valid">
+    <ion-icon name="checkmark-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
