@@ -7,19 +7,20 @@
 <ion-content>
   <ion-list>
     <ion-list-header>
+      Vacinados
       <ion-spinner *ngIf="loading"></ion-spinner>
     </ion-list-header>
 
     <ion-item-sliding *ngFor="let vacinado of vacinados">
 
       <ion-item-options side="start">
-        <ion-item-option color="secondary" [routerLink]="['/vacinados-register', vacinados.id]">
+        <ion-item-option color="secondary" [routerLink]="['/vacinados-register', vacinado.id]">
           <ion-icon name="pencil" slot="icon-only"></ion-icon>
         </ion-item-option>
       </ion-item-options>
 
       <ion-item-options side="end">
-        <ion-item-option color="danger" (click)="confirmRemove(vacinados)">
+        <ion-item-option color="danger" (click)="confirmRemove(vacinado)">
           <ion-icon name="trash" slot="icon-only"></ion-icon>
         </ion-item-option>
       </ion-item-options>

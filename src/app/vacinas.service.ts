@@ -24,7 +24,7 @@ export class VacinasService {
 
   public save(vacina: Vacina) {
     if (vacina.id) {
-      const index = this.vacinas.findIndex(g => g.id === vacina.id);
+      const index = this.vacinas.findIndex(v => v.id === vacina.id);
       this.vacinas[index] = vacina;
     } else {
       const id = this.contador++;

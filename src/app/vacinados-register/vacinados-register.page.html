@@ -47,7 +47,7 @@
 
         <ion-item>
           <ion-label>Vacina: </ion-label>
-          <ion-select formControlName="vacinas" multiple="false" cancelText="Cancelar" [compareWith]="compareWithVacina">
+          <ion-select formControlName="vacina" multiple="false" cancelText="Cancelar" [compareWith]="compareWithVacina">
             <ion-select-option *ngFor="let vacina of vacinas" [value]="vacina">
               {{ vacina.tipo }}
             </ion-select-option>

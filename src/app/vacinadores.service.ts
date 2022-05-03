@@ -24,7 +24,7 @@ export class VacinadoresService {
 
   public save(vacinador: Vacinador) {
     if (vacinador.id) {
-      const index = this.vacinadores.findIndex(g => g.id === vacinador.id);
+      const index = this.vacinadores.findIndex(v => v.id === vacinador.id);
       this.vacinadores[index] = vacinador;
     } else {
       const id = this.contador++;
