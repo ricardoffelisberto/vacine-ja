@@ -110,12 +110,19 @@ export class VacinadoresRegisterPage
   }
 
   salvar() {
-    const { nome } = this.form.value;
+    const { value } = this.form;
+    const { id, nome } = value;
+
+    if (!id) {
+      delete value.id;
+    }
+
+    value.nascimento = value.nascimento.split('T')[0];
 
     this.loading = true;
 
     this.vacinadoresApiService
-      .save(this.form.value)
+      .save(value)
       .pipe(
         finalize(() => {
           this.loading = false;
@@ -128,10 +135,10 @@ export class VacinadoresRegisterPage
             window.location.reload();
           });;
         },
-        () => {
-          this.messageService.error(`Erro ao salvar o vacinador ${nome}`, () =>
-            this.salvar()
-          );
+        ({ error }) => {
+          const erro = error?.erro ?? '';
+          const mensagem = `Erro ao salvar o vacinador ${nome} ${erro ? ': '+erro:''}`;
+          this.messageService.error(mensagem, () => this.salvar());
         }
       );
   }

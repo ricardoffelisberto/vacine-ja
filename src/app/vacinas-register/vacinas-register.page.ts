@@ -100,12 +100,20 @@ export class VacinasRegisterPage
   }
 
   salvar() {
-    const { tipo } = this.form.value;
+    const { value } = this.form;
+    const { id, tipo } = value;
+
+    if (!id) {
+      delete value.id;
+    }
+
+    value.fabricacao = value.fabricacao.split('T')[0];
+    value.validade = value.validade.split('T')[0];
 
     this.loading = true;
 
     this.vacinasApiService
-      .save(this.form.value)
+      .save(value)
       .pipe(
         finalize(() => {
           this.loading = false;
@@ -118,10 +126,10 @@ export class VacinasRegisterPage
             window.location.reload();
           });
         },
-        () => {
-          this.messageService.error(`Erro ao salvar a vacina ${tipo}`, () =>
-            this.salvar()
-          );
+        ({ error }) => {
+          const erro = error?.erro ?? '';
+          const mensagem = `Erro ao salvar a vacina ${tipo} ${erro ? ': '+erro:''}`;
+          this.messageService.error(mensagem, () => this.salvar());
         }
       );
   }

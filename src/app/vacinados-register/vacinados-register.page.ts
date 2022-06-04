@@ -58,8 +58,13 @@ export class VacinadosRegisterPage
   ngOnInit() {
     console.log('VacinadosRegisterPage ngOnInit');
 
-    this.vacinasApiService.getVacinas().subscribe((vacinas) => this.vacinas = vacinas);
-    this.vacinadoresApiService.getVacinadores().subscribe((vacinadores) => this.vacinadores = vacinadores);
+    this.vacinasApiService
+      .getVacinas()
+      .subscribe((vacinas) => (this.vacinas = vacinas));
+
+    this.vacinadoresApiService
+      .getVacinadores()
+      .subscribe((vacinadores) => (this.vacinadores = vacinadores));
 
     this.form = this.formBuilder.group({
       id: [''],
@@ -148,12 +153,19 @@ export class VacinadosRegisterPage
   }
 
   salvar() {
-    const { nome } = this.form.value;
+    const { value } = this.form;
+    const { id, nome } = value;
+
+    if (!id) {
+      delete value.id;
+    }
+
+    value.nascimento = value.nascimento.split('T')[0];
 
     this.loading = true;
 
     this.vacinadosApiService
-      .save(this.form.value)
+      .save(value)
       .pipe(
         finalize(() => {
           this.loading = false;
@@ -166,10 +178,10 @@ export class VacinadosRegisterPage
             window.location.reload();
           });;
         },
-        () => {
-          this.messageService.error(`Erro ao salvar o vacinado ${nome}`, () =>
-            this.salvar()
-          );
+        ({ error }) => {
+          const erro = error?.erro ?? '';
+          const mensagem = `Erro ao salvar o vacinado ${nome} ${erro ? ': '+erro:''}`;
+          this.messageService.error(mensagem, () => this.salvar());
         }
       );
   }
